@@ -4,6 +4,8 @@ const cookieSession = require('cookie-session');
 
 const createError = require('http-errors');
 
+const bodyParser = require('body-parser');
+
 const FeedbackService = require('./services/FeedbackService');
 const SpeakerService = require('./services/SpeakerService');
 
@@ -24,6 +26,8 @@ app.use(
     keys: ['hhsodh324ffr52sdoosjsof', 'hjjjwww9283293jd22'],
   })
 );
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
